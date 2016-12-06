@@ -1,7 +1,8 @@
-# Intermediate C++: Class Templates
+# Intermediate C++: STL Containers
 
-This project continues from the intro to templates example, and introduces the usage of templates with classes.
-This example also shows the usage of the auto keyword, and briefly introduces vector and the STL.
+This example shows the basics of using STL containers.
+It covers usage of vector, list, stack, queue, set, and map template classes.
+The example also demonstrates the usage of STL iterators for certain container types.
 
 # Setup
 

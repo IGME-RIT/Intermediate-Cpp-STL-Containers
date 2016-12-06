@@ -1,5 +1,5 @@
 series: Intermediate C++
-title: Class Templates
+title: STL Containers
 author:
   name: David Erbelding
   email: daviderbelding@gmail.com
@@ -9,10 +9,10 @@ language: C++
 tags:
   - Core
 extra_resources:
-  - link: http://www.codeproject.com/Articles/257589/An-Idiots-Guide-to-Cplusplus-Templates-Part
-    title: A more in depth guide that this example is based from.
+  - link: http://www.cplusplus.com/reference/stl/
+    title: STL containers reference (cplusplus.com).
+  - link: http://www.learncpp.com/cpp-tutorial/16-2-stl-containers-overview/
+    title: Another tutorial (leancpp.com)
 connections:
   - series: Intermediate C++
-    title: Intro To Templates
-  - series: Intermediate C++
-    title: Macros
+    title: Class Templates

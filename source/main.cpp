@@ -19,6 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include <iostream>
+#include <string>
 
 // The standard template library (STL) includes several container classes that use templates to manage collections of objects for you.
 // This example will cover some, but not all of the basics of these container classes. For more information you can always view the documentation online.
@@ -125,6 +126,11 @@ int main()
     }
 
 
+
+
+
+
+
     {
         // Next is list.
         // List is nice because you can insert things in the middle of the collection easily.
@@ -179,8 +185,9 @@ int main()
 
     {
         // Stacks and Queues should be easy to cover now that we've seen lists
+        // Instead of allowing access anywhere, the stacks and queues can be more efficient by only allowing you to access the newest element at any given time.
+        // Incidentally, this means that they do not have iterators, because accessing an element
 
-        // Instead of allowing access anywhere, the stack can be even more efficient by only allowing you to access the newest element at any given time.
         std::stack<int> myStack;
 
         std::cout << "adding 1, 2, 3 to stack:" << std::endl;
@@ -210,7 +217,7 @@ int main()
         myQueue.push(3);
 
         std::cout << "reading elements from queue, and then popping them off:" << std::endl;
-        while (myQueue.size() != 0)
+        while (!myQueue.empty())    // same thing as size() != 0
         {
             std::cout << myQueue.front() << std::endl;  // front() reads from the front of the queue.
 
@@ -224,6 +231,101 @@ int main()
 
 
 
+
+
+    {
+        // Next is sets.
+        // sets are designed to contain an organized set of uniquely identified items.
+        // These could be numbers, strings, pointers, or any class that can be compared with < > == != etc.
+
+        std::set<int> mySet;
+
+        std::cout << "inserting 5, 3, and 7" << std::endl;
+        mySet.insert(5);
+        mySet.insert(3);    // Inserting elements into a set is simple:
+        mySet.insert(7);
+
+        std::cout << "mySet.size(): " << mySet.size() << std::endl;
+
+        std::cout << "mySet.insert(3);" << std::endl;
+        mySet.insert(3);    // this won't do anything, because there's already a 3 in the set!
+        std::cout << "mySet.size(): " << mySet.size() << std::endl;
+
+
+
+        // Despite adding our elements out of order, iterating over the collection outputs them in order:
+        std::cout << "iterating on set: " << std::endl;
+        for (auto it = mySet.begin(); it != mySet.end(); it++)
+        {
+            std::cout << *it << std::endl;
+        }
+
+
+        // The most useful part of sets, is that we can easily find/remove objects from them.
+        auto it = mySet.find(5);    // find gives you an iterator at the location of the element you want, so you can easily iterate over a specific range.
+        std::cout << "mySet.erase(5)" << std::endl;
+        mySet.erase(5);
+
+
+        // second test to see results after erasing an element:
+        std::cout << "iterating on set: " << std::endl;
+        for (auto it = mySet.begin(); it != mySet.end(); it++)
+        {
+            std::cout << *it << std::endl;
+        }
+
+
+        std::cin.get();
+    }
+
+
+
+
+
+
+    {
+        // Finally for this example we have maps
+        // Maps work similarly to sets, but with a possiblly more helpful feature.
+        
+        // Maps use a combination of two objects, a key and value pair, to identify and sort elements.
+
+
+        std::map<int, std::string> myMap;   // Here the int is our key, and the string is the value.
+                                            // The map will use the int as a unique identifier like set does, but it will also be stored with the string attached.
+                                            // This becomes even more useful when you want to have a bunch of different object that are easy to find by some kind of name.
+
+        auto pairA = std::pair<int, std::string>(5, "hello");   // Map needs the two objects passed in as an std::pair combines the two objects.
+        auto pairB = std::pair<int, std::string>(62, "world");
+        auto pairC = std::pair<int, std::string>(99, "stuff");
+
+        myMap.insert(pairA);                // Now we can insert our pair into the map like this.
+        myMap.insert(pairB);
+        myMap.insert(pairC);
+
+        // Once your objects are inserted into the map, you can access elements with their keys:
+
+        std::cout << "myMap.at(99): " << myMap.at(99) << std::endl;
+        std::cout << "myMap.at(5): " << myMap.at(5) << std::endl;
+        std::cout << "myMap.at(62): " << myMap.at(62) << std::endl;
+
+
+        // Erase works the same as it does with set too:
+        std::cout << "myMap.erase(62)" << std::endl;
+        myMap.erase(62);
+
+        // So do iterators:
+        std::cout << "iterating on map: " << std::endl;
+        for (auto it = myMap.begin(); it != myMap.end(); it++)
+        {
+            std::cout << it->second << std::endl;    // since the elements are still stored as pairs, we need to get the second element from the pointer.
+        }
+        
+
+        std::cin.get();
+    }
+
+    // That's the basics you need to get started with STL collections!
+    // There are more container classes available, but these are the ones you should be aware of.
 
     return 0;   // End Program.
 }
