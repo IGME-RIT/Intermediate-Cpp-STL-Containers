@@ -1,0 +1,18 @@
+series: Intermediate C++
+title: Class Templates
+author:
+  name: David Erbelding
+  email: daviderbelding@gmail.com
+  github: https://github.com/Erbelding
+description: Use templates to define generic classes.
+language: C++
+tags:
+  - Core
+extra_resources:
+  - link: http://www.codeproject.com/Articles/257589/An-Idiots-Guide-to-Cplusplus-Templates-Part
+    title: A more in depth guide that this example is based from.
+connections:
+  - series: Intermediate C++
+    title: Intro To Templates
+  - series: Intermediate C++
+    title: Macros
