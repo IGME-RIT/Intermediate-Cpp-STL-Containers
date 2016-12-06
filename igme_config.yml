@@ -4,7 +4,7 @@ author:
   name: David Erbelding
   email: daviderbelding@gmail.com
   github: https://github.com/Erbelding
-description: Use templates to define generic classes.
+description: The standard library provides class templates for commonly used containers.
 language: C++
 tags:
   - Core
